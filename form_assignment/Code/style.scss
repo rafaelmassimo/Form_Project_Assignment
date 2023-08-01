@@ -1,0 +1,381 @@
+
+// -----------------------------
+//         Base value
+// -----------------------------
+
+#form-section {grid-area: form;}
+#imageOnTheRight {grid-area: image;}
+#logo-image {grid-area: logo;}
+* {
+    font-family: "Poppins", "Roboto", sans-serif;
+}
+
+:root {
+    --text-base: #afb6c2;
+    --text-title: #d4ccb6;
+    --background: #191816;
+    --form-background: #24221f;
+    --primary-color: #ffc632;
+}
+
+// -----------------------------------------------
+//         All the style will be inside Body
+// -----------------------------------------------
+body {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10rem auto;
+    align-items: center;
+    grid-template-areas:
+    "logo image"
+    "form image";
+    background-color: var(--background);
+    color: var(--text-base);
+    margin: 0px;
+
+    #logo-box {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        font-weight: bold;
+        color: var(--text-base);
+        margin-left: 5rem;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    #logo-image {
+        width: 50px;
+        height: auto;
+        margin-right: 5px;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+// -----------------------------------------------
+//         Edit here the image on the right
+// -----------------------------------------------
+    #imageOnTheRight {
+        background-image: url(../images/side-image-2x.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100vh;
+    }
+// --------------------------------------------------------------------------
+//         The form section can be edit here, form is the main box
+// --------------------------------------------------------------------------
+    form {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--form-background);
+        margin-inline: 12rem;
+        padding-inline: 10rem;
+        padding-block: 3rem;
+        border-radius: 10px;
+        margin-bottom: 10rem;
+        box-shadow: 0px 0px 10px 1px var(--text-base);
+
+        #check-box {
+            display: flex;
+            align-items: center;
+        }
+
+// --------------------------------------------------------------------------
+//              here you can modify the checkbox button
+// --------------------------------------------------------------------------
+        #remind-me {
+            order: -1;
+            //    first remove the default button
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            outline: none;
+            border: none;
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+            background-color: transparent;
+            //    then remove the default button
+            border: 2px solid var(--text-title);
+            border-radius: 3px;
+            cursor: pointer;
+            //    Position of the check button
+            position: relative;
+        }
+
+        #remind-me:checked {
+            border-color: var(--primary-color);
+        }
+
+// --------------------------------------------------------------------------
+//              Styling for the checkmark
+// --------------------------------------------------------------------------
+        #remind-me::before {
+            content: "\2713";
+            // modify here the position the checkmark
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            // modify here the checkmark size and color
+            font-size: 15px;
+            color: var(--text-title);
+            // modify here the opacity transition;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        // Styling for the checked state of the checkmark
+        #remind-me:checked::before {
+            opacity: 1;
+            border-color: var(--primary-color);
+        }
+
+        #remind-me:hover {
+            background-color: rgba(105, 108, 105, 0.459);
+        }
+
+            label{
+                margin-right: 1rem;
+            }
+        }
+
+// --------------------------------------------------------------------------
+//              Edit here the message style of the forms itself
+// --------------------------------------------------------------------------
+
+    #forms-info {
+        display: flex;
+        flex-direction: column;
+
+        #button-section {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            p {
+                color: var(--primary-color);
+            }
+        }
+
+        a {
+            color: var(--primary-color);
+        }
+
+        button {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--form-background);
+            border-radius: 4px;
+            background-color: var(--primary-color);
+            border-style: none;
+            padding: 1rem;
+            margin-top: 1rem;
+            box-shadow: 0px 0px 20px 2px rgba(219, 219, 50, 0.5);
+        }
+
+        #email {
+            background-image: url(../images/mail.svg);
+            background-size: 1.3rem;
+            background-repeat: no-repeat;
+            background-position: left;
+            padding: 10px 10px;
+            text-indent: 20px;
+            position: relative;
+            color: var(--primary-color);
+        }
+
+        #email::before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            content: "";
+            height: 50px;
+            width: 50px;
+            background-color: salmon;
+        }
+
+        #password {
+            background-image: url(../images/lock.svg);
+            background-size: 1.3rem;
+            background-repeat: no-repeat;
+            background-position: left;
+            padding: 10px 10px;
+            text-indent: 20px;
+            color: var(--primary-color);
+        }
+
+        #password::placeholder {
+            padding: 10px;
+        }
+
+        #password-section {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1rem;
+            }
+
+        #forms-main {
+            display: flex;
+            flex-direction: column;
+            border: none;
+            padding: 0px;
+            margin: 0px;
+
+            input:focus {
+                outline: none;
+                border: 2px solid var(--primary-color);
+            }
+            #email-section {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 2rem;
+
+                #email-valid {
+                    display: none;
+                    letter-spacing: 1px;
+                    font-weight: 400;
+                    color: var(--primary-color);
+                    background-color: var(--background);
+                    border-radius: 10px;
+                    width: fit-content;
+                    transition: opacity 1s ease-in-out;
+                }
+            }
+        }
+    }
+
+    input {
+        border-radius: 3px;
+        background-color: var(--form-background);
+        border: 1px solid grey;
+        height: 1.5rem;
+    }
+
+    #title-forms {
+        display: flex;
+        flex-direction: row;
+        text-indent: 15px;
+    }
+
+    #logo-box {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        font-weight: bold;
+        color: var(--text-base);
+        margin-left: 5rem;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    #logo-image {
+        width: 50px;
+        height: auto;
+        margin-right: 5px;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+
+// ------- Modify here the message onto the password field--------
+    #message {
+        display:none;
+        background: var(--form-background);
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+    
+        h3 {
+            color: var(--text-title);
+        }
+    
+        #message p {
+            padding: 0.8rem 2 rem;
+            font-size: 1rem;
+        }
+    
+        .valid {
+            color: rgb(33, 174, 169);
+        }
+    
+        .valid:before {
+            position: relative;
+            left: -35px;
+            content: "\2713";
+        }
+    
+        .invalid {
+            color: rgb(237, 124, 25);
+        }
+        
+        .invalid:before {
+            position: relative;
+            left: -35px;
+            content: "\2716";
+        }
+    }
+}
+
+
+
+//  --------------Media Query starts Here---------------
+
+@media screen and (max-width: 993px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        background-image: url(../images/side-image.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        background-size: 100vh;
+
+
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/side-image.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(10px);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--form-background);
+            margin-inline: 8rem;
+            padding-inline: 8rem;
+            padding-block: 3rem;
+            border-radius: 65px;
+            margin-bottom: 10rem;
+            box-shadow: none !important;
+        }
+
+        #form-section {
+            margin-top: 10rem;
+            margin-inline: -50px;
+        }
+        
+        #imageOnTheRight {
+            display: none;
+        }
+
+        #logobox {
+            margin-top: 15rem;
+        }
+    }
+}
+
+

@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"name": "ContactMe - Page",
+			"path": "../../../../../../Middle-Project - tests/ContactMe - Page"
+		},
+		{
+			"name": "SuperMario",
+			"path": "../../../SuperMario"
+		},
+		{
+			"name": "w3school",
+			"path": "../../../../w3school"
+		},
+		{
+			"name": "DOM",
+			"path": "../../.."
+		},
+		{
+			"name": "Forms",
+			"path": "../../../Forms"
+		},
+		{
+			"name": "Animation Exercise",
+			"path": "../../../Animation Exercise"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "w3school"
+	}
+}
